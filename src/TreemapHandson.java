@@ -21,7 +21,6 @@ public class TreemapHandson {
         String[] dataSet = cricketDataset.split("\\|");
         for (String dSet: dataSet){
             String[] data = dSet.split(",");
-
             String p = data[1];
             Integer score = Integer.parseInt(data[2]);
             map.put(p,score);
@@ -61,6 +60,7 @@ public class TreemapHandson {
     public static String getQuery(String cricketDataset, String query){
         String str ="";
         String[] queryData = query.split(" ");
+        cricketDataset = cricketDataset.replace("\n","|");
         int queryType = Integer.parseInt(queryData[0]);
         if(queryType == 1){
             TreeMap<Integer,String> map = createPlayerPositionMap(cricketDataset);
